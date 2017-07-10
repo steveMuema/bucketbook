@@ -9,3 +9,5 @@ Log in to their accounts.
 Create, view, update and delete bucket lists.
 Add, update, view or delete items in a bucket list.
 
+Currently undergoing tests and changes to the views then update the backend priviledges of the site
+
