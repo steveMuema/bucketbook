@@ -1,102 +1,14 @@
-<html>
-    <head>
-        <meta charset="utf-8";>
-        <title> BucketlistApp </title>
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-          <link rel="stylesheet" href="style.css">
-          <link rel="stylesheet" href="newlist.css">
-         
-    </head>
-    <body>
-          <div class="navbar-fixed">
-            <nav>
-                <div class="nav-wrapper">
-                <a href="#!" class="brand-logo center">BucketlistApp</a>
-                    <!--<ul class="right hide-on-med-and-down">
-                        <li><a href="about.html"><i class="material-icons">info</i></a></li>
-                        <li><a href="badges.html"><i class="material-icons">code</i></a></li>
-                    </ul>-->
-            </div>
-            </nav>
-        </div>
-        <div class="add-card">
-          <div class="row">
-            <div class="col s12 m6">
-                <div class="card #263238 blue-grey darken-4">
-                <div class="row">
-                    <div class="card-content white-text">
-                        <div class="input-field col s8">
-                             <input  id = "addlist" type="text" class ="validate">
-                             <label for = "addlist">Add a new Bucketlist...</label>
-                        
-                        </div>
-                         <span onclick="newElement()" class="addBtn">Add</span>
-                         <!--<span onclick="activitiesModal()" class="">Edit</span> -->
-                            
-                        </div>
-                    </div>
-                </div>
-             </div>
-            
-          </div>
-          </div>
-          <div class="rowlist">
-         <div id="myDIV" class="header">
-            <h4>Your Lists</h4>
-             </div> 
-                <ul id="myUL" class="collection">
-                <li class="checked">What are your heart's desires...</li>
-                </ul>
-         
-          </div>
-          <!-- The Modal -->
-          <div class="rowModal">
-        <div id="myModal" class="modal">
-
-             <!-- Modal content -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <span class="close1">&times;</span>
-                    <h4>View Activities</h4>
-                </div>
-                <div class="modal-body">
-                    <div id="myDIV" class="header">
-                        <input type="text" id="myInput" placeholder="Create new Activity...">
-                        <span onclick="newActivity()" class="addActivity">Add</span>
-                        </div>
-                        
-                        <ul id="myUL1" class="collection">
-                            <li> Handle stuff</li>
-                            <li>Alvin</li>
-                            <li>Meet George</li>
-                            <li>Buy eggs</li>
-                            <li>Read a book</li>
-                            <li>Organize office</li>
-                        </ul> 
-                </div>
-            </div>
-        </div>
-       
-          <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-           <script type="text/javascript" src="js/materialize.min.js"></script>
-           <script type="text/javascript">
-
-                            // Create a "close" button and append it to each list item
-                    var myNodelist = document.getElementsByTagName("LI");
-                    var i;
-                    for (i = 0; i < myNodelist.length; i++) {
-                    var span = document.createElement("SPAN");
-                    
-                    var txt = document.createTextNode("\u00D7");
-            
-                    span.className = "close";
-                   
-                    span.appendChild(txt);
-                    myNodelist[i].appendChild(span);
-                  
-                }
-               
+         // Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+                  }
+  
                 
                     //create "edit" button and append on each list item
                     var myNodelist1= document.getElementsByTagName("LI");
@@ -226,18 +138,15 @@
                     }
                 } 
 
-                </script>
-
-
-           <script type="text/javascript">
+        
                 
                 // Create a "close" button and append it to each activity list item
                     var myNodelist2 = document.getElementsByTagName("LI");
-                    var myNodelist2=this.parentElement;
+                    
                     var j;
                     for (j = 0; j < myNodelist2.length; j++) {
-                    var span2 = document.createElement("SPAN");
-                    var txt1 = document.createTextNode("X");
+                    var span2 = modal.createElement("SPAN");
+                    var txt1 = modal.createTextNode("X");
                     span2.className = "closeActivity";
                     span2.appendChild(txt1);
                     myNodelist2[j].appendChild(span2);
@@ -273,7 +182,7 @@
                 } else {
                     document.getElementById("myUL1").appendChild(listActivity);
                 }
-                document.getElementById("addActivity").value = "";
+                document.getElementById("myInput").value = "";
 
                 var div2 = document.createElement("SPAN");
                 var txt1 = document.createTextNode("X");
@@ -289,7 +198,3 @@
                 }
 
                 } 
-           </script>
-    </body>
-     
-</html>
