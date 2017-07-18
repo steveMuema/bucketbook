@@ -2,10 +2,12 @@
     border-radius: 30px;
     padding-left: 350px;
     padding-right: 270px;
+    padding-top:60px;
   
 }
 #addlist{
     font-size: 25px;
+    margin-top:30px;
 }
 .rowlist{
     border-radius: 30px;

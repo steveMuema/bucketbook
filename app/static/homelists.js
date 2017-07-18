@@ -15,21 +15,30 @@ for (i = 0; i < myNodelist.length; i++) {
     var i;
     for (i =0; i<myNodelist1.length; i++) {
     
-    var span1 = document.createElement("SPAN");
+    var span1 = document.createElement("A");
     var edittxt= document.createTextNode("edit");
+    
     span1.className = "edit";
+    span1.id="editlink";
     span1.appendChild(edittxt);
+    // span1.appendChild(link);
+    // $('A').append(link);
         myNodelist1[i].appendChild(span1);
         }
 
 
-    //click "edit" button to open activities modal
-    // var edit=document.getElementsByClassName("edit");
-    // var i;
-    // for(i=0; i<edit.length; i++){
-    //     edit[i].onclick = function(){
-    //     //open activities page
-    //     }
+//     //click "edit" button to open activities modal
+    var edit=document.getElementsByClassName("edit");
+    var i;
+    for(i=0; i<edit.length; i++){
+        edit[i].onclick = function (){
+     
+          
+        
+};
+    }
+ 
+    
 
     // Click on a close button to hide the current list item
     var close = document.getElementsByClassName("close");
@@ -38,6 +47,7 @@ for (i = 0; i < myNodelist.length; i++) {
     close[i].onclick = function() {
         var div = this.parentElement;
         div.style.display = "none";
+
     }
     }
 
@@ -82,10 +92,10 @@ for (i = 0; i < myNodelist.length; i++) {
     }
     // for(i=0; i<edit.length; i++){
     //     edit[i].onclick = function(){
-    //         //open the lists
+        
     //     }
     // }         
 } 
 
 
-
+    

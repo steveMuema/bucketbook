@@ -8,6 +8,9 @@ body{
 nav{
     background-color: teal;
 }
+a, nav{
+    background-color:  teal;
+}
 
 .rows{
     
