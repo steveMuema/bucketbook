@@ -1,18 +1,17 @@
 from app.models.store import Stores
+"""Module creates, updates and deletes bucketlists from model"""
 class Bucketlist(object):
+    """ class will call methods new_bucketlist, read_bucketlist, delete_bucketlist, and update to account"""
     def __init__(self, txtbucket):
         self.txtbucket = txtbucket
-
-
-    """ creates new bucketlist and appends to the store with save_bucketlist"""
     def bucketlist_stores(self):
-        """return information to be called  when appending to the store for bucketlist[bucketlist_store]"""
+        """return information to be called  when appending to the store """
         return{'txtbucket': self.txtbucket}
 
     @classmethod
-    def new_bucketlist(self, txtbucket):
-        """ sets the attribute of the class to new_bucketlist and calls save_bucketlist() to append on store"""
-        new_bucketlist=self(txtbucket)
+    def new_bucketlist(cls, txtbucket):
+        """ sets the attribute of the class to new_bucketlist and calls save_bucketlist()"""
+        new_bucketlist = cls(txtbucket)
         new_bucketlist.save_bucketlist()
 
     def save_bucketlist(self):

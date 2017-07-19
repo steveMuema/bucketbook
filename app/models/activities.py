@@ -1,18 +1,15 @@
 from app.models.store import Stores
 class Activities(object):
-    def __init__(self, txtActivity):
-        self.txtActivity = txtActivity
-
-
-    """ creates new bucketlist and appends to the store with save_bucketlist"""
+    def __init__(self, activitytxt):
+        self.activitytxt = activitytxt
     def activity_stores(self):
-        """return information to be called  when appending to the store for bucketlist[bucketlist_store]"""
-        return{'txtActivity': self.txtActivity}
+        """return information to be called  when appending to the store"""
+        return{'activitytxt': self.activitytxt}
 
     @classmethod
-    def new_activity(self, txtActivity):
-        """ sets the attribute of the class to new_bucketlist and calls save_bucketlist() to append on store"""
-        new_activity=self(txtActivity)
+    def new_activity(cls, activitytxt):
+        """ sets the attribute of the class to new_activity and append on store"""
+        new_activity = cls(activitytxt)
         new_activity.save_activity()
 
     def save_activity(self):

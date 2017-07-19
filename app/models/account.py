@@ -1,38 +1,38 @@
-from register import Register
-from bucketlist import Bucketlist
-from activities import Activities
+""" This module contains necessary data for each account"""
+from app.models.bucketlist import Bucketlist
+from app.models.activities import Activities
+from app.models.register import Register
 class Account(object):
-    """Account """
-    def __init__(self, firstName, lastName, email, password, index, txtbucket, txtActivity):
+    """Account Class that contains stored details of a specific account in bucketbook"""
+    def __init__(self, firstname, lastname, email, password, index, txtbucket, activitytxt):
         """ initializes the credentials of user"""
-        self.firstName = firstName
-        self.lastName = lastName
+        self.firstname = firstname
+        self.lastname = lastname
         self.email = email
         self.password = password
-        self.index=index
-        self.txtbucket=txtbucket
-        self.txtActivity=txtActivity
+        self.index = index
+        self.txtbucket = txtbucket
+        self.activitytxt = activitytxt
 
-    def account_credentials(self, firstName, lastName, email, password,index):
+    def account_credentials(self, firstname, lastname, email, password, index):
         """ inherits attributes from register"""
         credentials = Register(
-            firstName = firstName,
-            lastName = lastName,
-            email = email,
-            password = password,
+            firstname=firstname,
+            lastname=lastname,
+            email=email,
+            password=password,
             index=index,
         )
         return credentials 
-
     def create_bucketlist(self, txtbucket):
         """inherits from bucketlist"""
-        bucketlist= Bucketlist(
-            txtbucket = txtbucket
+        bucketlist = Bucketlist(
+            txtbucket=txtbucket
         )
         return bucketlist
-
-    def create_activity(self, txtActivity):
+    def create_activity(self, activitytxt):
         """inherits from bucketlist"""
-        activity= Activities(
-            txtActivity = txtActivity
+        activity = Activities(
+            activitytxt=activitytxt
         )
+        return activity
