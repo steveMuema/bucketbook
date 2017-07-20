@@ -1,5 +1,5 @@
-{% extends "base.html" %}
 {% block body %}
+{%if session['logged in']%}
   <div class="add-card">
           <div class="row">
             <div class="col s12 m6">
@@ -30,5 +30,5 @@
                 <ul id="myUL" >
                 <li class="checked">What are your heart's desires...</li>
                 </ul>
-
+{%endif%} 
 {% endblock %}

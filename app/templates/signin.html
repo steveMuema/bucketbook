@@ -1,39 +1,42 @@
 {% extends "base.html" %}
 {% block body %}
+{%if session['logged in']%}
+
+{%else%}
  <div class= "rows" id="main">
             <div class="z-depth-4"></div>
             <div class="form-title">
                  <div class="z-depth-2"></div>
             <!--<a href="#!" class="login-logo">Welcome</a>-->
             </div>
-            <form class = "col s12" id="login-form">
+            <form class = "col s12" id="login-form" action="/home" method="POST">
                 
                 <div class="row">
                    
                     <div class="input-field col s10">
-                         <i class="material-icons prefix">email</i>
-                        <input placeholder="example@address.com" id="email" type="email" class="validate">
+                        <input placeholder="example@address.com" name="email" id="email" type="email" class="validate">
                         <label for = "email" data-error="invalid address" data-success="valid address">Email</label>
                     </div>
                 </div>
                 
+                 <div class="row">
+                   
+                    <div class="input-field col s10">
+                        <input placeholder="hitchens" name= "username" id="username" type="text" class="validate">
+                        <label for = "username" >Username</label>
+                    </div>
+                </div>
+
                 <div class = "row">
                     <div class="input-field col s7">
-                         <i class="material-icons prefix">mode_edit</i>
-                        <input id="password" type="password" class="validate">
+                        <input id="password" type="password" class="validate" name="password">
                         <label for "password">Password</label>
                     </div>
                 </div>
                     <button class="waves-effect waves-light btn-large ">SIGN IN
                     </button>
-                     <p class="text-p">Don't have an account? <a href="/signup.html">Sign Up</a> </p>
+                     <p class="text-p">Don't have an account? <a href="/signup">Sign Up</a> </p>
             </form>
         </div>
-
-
-
-
-
-
-           
+{%endif%}         
 {% endblock %}

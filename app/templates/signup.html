@@ -6,17 +6,13 @@
             <!--<a href="#!" class="login-logo">Welcome</a>-->
             </div>
             <form class = "col s12" id="login-form">
-                <div class = "row">
-                    
-                    <div class= "input-field col s6">
-                         <!-- <i class="material-icons prefix">perm_identity</i> -->
-                        <input  id = "first_name" type="text" class ="validate">
-                        <label for = "first_name">First Name</label>
+                <div class="row">
+                   
+                    <div class="input-field col s10">
+                        <input placeholder="hitchens" id="username" type="text" class="validate">
+                        <label for = "username" data-error="invalid username" data-success="valid username">Email</label>
                     </div>
-                    <div class= "input-field col s6">
-                        <input  id = "last_name" type="text" class ="validate">
-                        <label for = "last_name">Last Name</label>
-                    </div>
+                </div>
                 <div class="row">
                     <div class="input-field col s12">
                          <!-- <i class="material-icons prefix">email</i> -->
@@ -25,59 +21,16 @@
                     </div>
                 </div>
                 <div class = "row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s8">
                          <!-- <i class="material-icons prefix">mode_edit</i> -->
                         <input id="password" type="password" class="validate">
                         <label for="password">Password</label>
-                    </div>
-                    
-             
-                    
-                   
-                    <div class="input-field col s6">
-        
-           
-                
-                <div id="container">
-                <input
-                  
-                    class="datepicker"
-                    name="date"
-                    type="text"
-                    autofocuss
-                    value="14 August, 2014"
-                    data-value="2014-08-08">
-                    <label for="container">Date of Birth</label>
-            </div>
-             </div>
-                    </div>
-                    </div>
+                    </div>    
+                </div>
                     <button class="waves-effect waves-light btn-large " type="submit" name="action"> SIGN UP
                     </button>
-                     <p class="text-p">Already have an account? <a href="signin.html">Sign In</a> </p>
+                     <p class="text-p">Already have an account? <a href="/signin">Sign In</a> </p>
             </form>
         </div>
-
-           
-    <script src="../static/js/pickadate.js/lib/picker.js"></script>
-    <script src="../static/js/pickadate.js/lib/picker.date.js"></script>
-    <script src="../static/js/pickadate.js/lib/legacy.js"></script>
-    
-   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="../static/js/materialize.min.js"></script>
-    <script type="text/javascript">
-
-        var $input = $( '.datepicker' ).pickadate({
-            formatSubmit: 'yyyy/mm/dd',
-            // min: [2015, 7, 14],
-            container: '#container',
-            // editable: true,
-            closeOnSelect: false,
-            closeOnClear: false,
-        })
-
-        var picker = $input.pickadate('picker')
-    </script>
-    </script>
   
 {% endblock %}
