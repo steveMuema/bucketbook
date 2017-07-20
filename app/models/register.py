@@ -12,28 +12,24 @@ class Register(object):
     def register_stores(self):
         """returns information to be in the stores for credentials """
         return{
-            'firstName': self.firstname,
-            'lastName': self.lastname,
+            'firstname': self.firstname,
+            'lastname': self.lastname,
             'email': self.email,
             'password': self.password,
             'index': self.index,
             }
-    def account_exists(self, auth_email):
-        """ should check if the account exists and return the email with output messsage"""
-        for email in len(Stores.account_store[2]):
-            auth_email = Stores.account_store.pop(email)
-            print ("Account exits, Login to account", auth_email)
-
-
-
-
+    # def account_exists(email):
+    #     """ should check if the account exists and return the email with output messsage"""
+    #     account_exist= [e['email'] for e in Stores.account_store if email == e['email']]:
+    #         return ''.join(account_exist)==email
     @classmethod
-    def register_credentials(self, firstName, lastName, email, password, index):
+    def register_credentials(cls, firstname, lastname, email, password, index):
         """ save account to a variable """
-        new_account = self(firstName, lastName, email, password, index)
-        new_account.save_credentials()
-
+        new_account_store = cls(firstname, lastname, email, password, index)
+        #append it to stores
+        new_account_store.save_credentials()
     def save_credentials(self):
         """ sends account to main store of accounts[account_store] """
         Stores.account_store.append(self.register_stores())
+        
         
