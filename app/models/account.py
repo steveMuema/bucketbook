@@ -29,9 +29,12 @@ class Account(object):
         """sets bucketlist to account and returns the list created"""
         bucketlist = Bucketlist.get_buckets(self)
         return bucketlist
-    def create_activity(self, buckets_activities):
-        """inherits from bucketlist"""
-        buckets_activities = Activities(
-            buckets_activities=buckets_activities
-        )
-        return buckets_activities
+    # def create_activity(self, buckets_activities):
+    #     """inherits from bucketlist"""
+    #     buckets_activities = Activities(
+    #         buckets_activities=buckets_activities
+    #     )
+    #     return buckets_activities
+    def set_activities(self):
+        activities - Activities.get_activities(self)
+        return activities

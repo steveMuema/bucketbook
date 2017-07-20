@@ -24,3 +24,7 @@ class Activities(object):
     def save_activity(self):
         """ method for appending created txtbucket to the bucketlist_store on (central) store   """
         Stores.activities_store.append(self.activity_stores())
+
+     def get_activities(self):
+        view_activities = Stores.activities_store
+        return view_activities
