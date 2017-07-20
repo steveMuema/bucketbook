@@ -38,8 +38,11 @@ class TestAccount(unittest.TestCase):
         new_activity = Activities.new_activity('Buy early bird FIFA World Cup 2017 tickets')
         assert new_activity == dummy_activity
 
-
-
+    def test_remove_buckets(self):
+        dummy_bucketlist = self.store.bucketlist_store.append(self.dummy_bucketlist)
+        new_bucketlist = Bucketlist.remove_buckets(self.dummy_bucketlist)
+        assert [new_bucketlist] == Stores.bucketlist_store
+        # assertEqual(dummy_bucketlist, [], msg = "Bucket successfully deleted")
     # def test_account_exists(self, auth_email):
     #     dummy_account = self.store.account_store.append(self.dummy_account)
     #     auth_email=Register.auth_email.account_exist('hitch@gmail.com')

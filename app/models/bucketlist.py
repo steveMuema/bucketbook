@@ -6,7 +6,7 @@ from app.models.activities import Activities
 class Bucketlist(object):
     """ class will contain fundamentals for bucketlists"""
     def __init__(self, buckets):
-        """ initiate class that contains list of  buckets """
+        """ initiate list of  buckets and add empty list of activities to a new bucket"""
         self.buckets = buckets
         self.activities = Activities.new_activity("")
         # self.buckets_index = buckets.index('buckets')
@@ -29,6 +29,7 @@ class Bucketlist(object):
         Stores.bucketlist_store.append(self.buckets_stores())
 
     def get_buckets(self):
+        """ copies the stored bucketlist and render it to the account """
         view_buckets = Stores.bucketlist_store
         return view_buckets
     
@@ -45,3 +46,14 @@ class Bucketlist(object):
             return bucket_index
         except ValueError:
             return None
+
+    @classmethod
+    def remove_buckets(self,buckets):
+        bucket_list=self(buckets)
+        all_indexes = len(Stores.bucketlist_store)
+        for bucket_index in range(all_indexes):
+            if bucket_index == Stores.bucketlist_store.pop(bucket_index):
+                Stores.bucketlist_store.remove(bucket_index)
+        # except ValueError:
+        #     return None
+        return bucket_list
