@@ -14,9 +14,6 @@ pbr==3.1.1
 Pillow==4.1.1
 pycurl==7.43.0
 pygpgme==0.3
-pyliblzma==0.5.3
-pytz==2017.2
-pyxattr==0.5.3
 rpm-python==4.13.0.1
 sepolicy==1.1
 setools==4.1.0
