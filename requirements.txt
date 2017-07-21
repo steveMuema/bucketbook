@@ -13,7 +13,6 @@ olefile==0.44
 pbr==3.1.1
 Pillow==4.1.1
 pycurl==7.43.0
-pygobject==3.24.1
 pygpgme==0.3
 pyliblzma==0.5.3
 pytz==2017.2
