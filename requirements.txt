@@ -3,7 +3,6 @@ chardet==2.3.0
 click==6.7
 Django==1.11.2
 Flask==0.11.1
-gps==3.16
 iniparse==0.4
 IPy==0.81
 itsdangerous==0.24
