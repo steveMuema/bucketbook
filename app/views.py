@@ -1,38 +1,31 @@
-"""" use this to configure the @app/route paths in the html files """
+""" This modules contain routes for handling application pages """
+from flask import render_template
 from app import app
-from flask import Flask, flash, redirect, render_template, request, session, abort
-
-
 @app.route('/')
 def index():
-    """ navigates to the root page index.html """
-    if not session.get('logged in'):
-        return render_template("signin.html")
-    return render_template("home.html")
+    """ Starting page of the application containing brief description of the app"""
+    return render_template("getting-started.html")
 
+@app.route('/register')
+def register():
+    """ opens the register page"""
+    return render_template("register.html")
 
-@app.route('/signup')
-def signup():
-    """ navigates to the signup page signup.html """
-    return render_template("signup.html")
+@app.route('/login')
+def login():
+    """ open the login page"""
+    return render_template("login.html")
 
+@app.route('/bucketlists')
+def bucketlist():
+    """ opens the bucketlists page. Home page of application """
+    return render_template("bucketlists.html")
 
-@app.route('/signin', methods=['GET', 'POST'])
-def do_login():
-    """ navigates to the sign page signin.html """
-    if request.form['email'] == 'hitchs3x@gmail.com' and request.form['username'] == 'hitch' and request.form['password']=='say123#':
-        session['loggedin']=True
-    else:flash('Authenticaion error, Try again')
-    return render_template("home.html")
-
-
-@app.route('/home')
-def home():
-    """ navigates to the home page home.html """
-    return render_template("home.html")
-
-
-@app.route('/home/activities')
+@app.route('/activities')
 def activities():
-    """ navigates to the activites page activities.html """
+    """ opens the activities page"""
     return render_template("activities.html")
+@app.route('/about')
+def about():
+    """ opens the about page"""
+    return render_template("about.html")

@@ -12,5 +12,4 @@ MarkupSafe==0.23
 olefile==0.44
 pbr==3.1.1
 Pillow==4.1.1
-pycurl==7.43.0
 werkzeug==0.11
