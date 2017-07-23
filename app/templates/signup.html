@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block body %}
+ <div class= "rows" id="main">
+            <div class="form-title">
+                 <div class="z-depth-2"></div>
+            <!--<a href="#!" class="login-logo">Welcome</a>-->
+            </div>
+            <form class = "col s12" id="login-form">
+                <div class="row">
+                   
+                    <div class="input-field col s10">
+                        <input placeholder="hitchens" id="username" type="text" class="validate">
+                        <label for = "username" data-error="invalid username" data-success="valid username">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                         <!-- <i class="material-icons prefix">email</i> -->
+                        <input placeholder="example@address.com" id="email" type="email" class="validate">
+                        <label for = "email" data-error="invalid address" data-success="valid address">Email</label>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class="input-field col s8">
+                         <!-- <i class="material-icons prefix">mode_edit</i> -->
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>    
+                </div>
+                    <button class="waves-effect waves-light btn-large " type="submit" name="action"> SIGN UP
+                    </button>
+                     <p class="text-p">Already have an account? <a href="/signin">Sign In</a> </p>
+            </form>
+        </div>
+  
+{% endblock %}
