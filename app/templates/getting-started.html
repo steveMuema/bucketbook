@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="carousel slide" id="myCarousel" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img class="first-slide" src="../static/skydive.jpg">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1> Getting Started</h1>
+                    <p> Welcome to Bucketbook. Do you have a bucket list? Do you want to challenge yourself and accomplish something. Here we help you keep track of your activities and Bucket lists
+                    </p>
+                     <a class="btn btn-lg btn-primary" href="/register" role="button">Sign up today</a>
+                </div>
+            </div>   
+        </div>
+            <div class="item">
+            <img class="second-slide" src="../static/hiking.jpg">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1> The Mission</h1>
+                    <p> At Bucketbook; we want to help our ambitions reflect your ambitions,We started this application to enable you grow with it, checkout our targets and progress each day. 
+                    </p>
+                     <a class="btn btn-lg btn-primary" href="/register" role="button">Sign up today</a>
+                </div>
+            </div>  
+    </div> 
+</div>
+
+<div class="container marketing">
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="../static/eay-to-use .png" alt="Generic placeholder image" width="140" height="140">
+          <h2>Easy to Use</h2>
+          <p>Bucketbook offers features to be able to see, modify and update your bucketlists activities. Using our dynamic and responsive web pages to our advantage, we are keen to offer you, our customer, with the best experience</p>
+        
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="../static/technical-support.png" alt="Generic placeholder image" width="140" height="140">
+          <h2>Technical Support</h2>
+          <p>We want to support you to be able to grow yourself and express yourself on your space, make your ambitions a reality. Become the best you and come checkout your current progress. Challenge yourself and keep track of your ambitions daily, checkout any progresss you made on a daily basis, and this application would support you with your growth</p>
+         
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="../static/grow-self.png" width="140" height="140">
+          <h2>Grow yourself</h2>
+          <p>Bucketbook is an easy to use to keep track of your future ambitions, It's simplicity  is to help you grow with us. </p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script> window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+<script> -->
+<!-- <script src="../../assets/js/vendor/holder.min.js"></script>     -->
+{% endblock%}

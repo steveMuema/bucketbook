@@ -1,32 +1,18 @@
 {% extends "base.html" %}
+{% import "wtf.html" as wtf%}
 {% block body %}
  <div class= "rows" id="main">
             <div class="form-title">
                  <div class="z-depth-2"></div>
             <!--<a href="#!" class="login-logo">Welcome</a>-->
             </div>
-            <form class = "col s12" id="login-form">
+            <form class = "form-signup" id="login-form" action="/signup" method="POST">
                 <div class="row">
-                   
-                    <div class="input-field col s10">
-                        <input placeholder="hitchens" id="username" type="text" class="validate">
-                        <label for = "username" data-error="invalid username" data-success="valid username">Email</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                         <!-- <i class="material-icons prefix">email</i> -->
-                        <input placeholder="example@address.com" id="email" type="email" class="validate">
-                        <label for = "email" data-error="invalid address" data-success="valid address">Email</label>
-                    </div>
-                </div>
-                <div class = "row">
-                    <div class="input-field col s8">
-                         <!-- <i class="material-icons prefix">mode_edit</i> -->
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Password</label>
-                    </div>    
-                </div>
+                    {{ form.hidden_tag() }}
+                    {{ wtf.formfield(form.email) }}
+                    {{ wtf.formfield(form.username) }}
+                    {{ wtf.formfield(form.password) }}
+                     
                     <button class="waves-effect waves-light btn-large " type="submit" name="action"> SIGN UP
                     </button>
                      <p class="text-p">Already have an account? <a href="/signin">Sign In</a> </p>
