@@ -31,8 +31,7 @@ class Bucketlist(object):
         return view_buckets
     def remove_buckets(self, bucket_id):
         """ method used to remove a bucketlist """
-        
-        selected_bucket = [x for x in Stores.bucketlist_store if
+        selected_bucket = [x for x in Stores.bucketlist_store[:] if
                            bucket_id == x['bucket_id']]
-        selected_bucket.remove()
-        return Stores.bucketlist_store
+        Stores.bucketlist_store.remove(selected_bucket['0'])
+        return True
