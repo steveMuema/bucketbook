@@ -1,13 +1,14 @@
 """This module contains fundamentals of the bucketlists class 
 Attributes: buckets 'used to instantiate a bucketlist and also save value to store',
 buckets_index 'returns the index of particular index'  """
+from uuid import uuid4
 from app.models.store import Stores
 class Bucketlist(object):
     """ class will contain fundamentals for bucketlists"""
-    def __init__(self, bucketname, bucket_id):
+    def __init__(self, bucketname, bucket_id = None):
         """ initiate list of  buckets and add empty list of activities to a new bucket"""
         self.bucketname = bucketname
-        self.bucket_id = bucket_id
+        self.bucket_id = uuid4.hex() bucket_id if bucket_id is None else bucket_id
     def bucketlist_stores(self):
         """return information to be called  when appending to the store """
         return{'bucketname': self.bucketname,
