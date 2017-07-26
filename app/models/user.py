@@ -1,8 +1,10 @@
 """ This module will be used to store create credentials specific account"""
+from uuid import uuid4
 from app.models.store import Stores
 class User(object):
     """ class that handles registration of accounts on bucketbook."""
-    def __init__(self, username, email, password):
+    def __init__(self,username, email, password, user_id=None):
+        self.user_id = uuid4().hex if user_id is None: user_id
         self.username = username
         self.email = email
         self.password = password
@@ -10,6 +12,7 @@ class User(object):
     def register_stores(self):
         """returns information to be in the stores for credentials """
         return{
+            'user_id' : self.user_id,
             'username': self.username,
             'email': self.email,
             'password': self.password,}
@@ -22,15 +25,15 @@ class User(object):
     def account_exists(email):
         """ method to check if account exists then allow registration if false"""
         if email in Stores.account_store:
-            return "Account exist, Sign in to account" 
+            return "Account exist, Sign in to account", email 
         else:
             return False
     @classmethod
-    def register_user(cls, username, email, password):
+    def register_user(cls,user_id, username, email, password):
         """ method for creating a new user"""
         auth_user = User.account_exists(email)
         if auth_user is False:
-            new_user = cls(username, email, password)
+            new_user = cls(user_id,username, email, password)
             new_user.save_credentials()
             return new_user
         else: return auth_user 
