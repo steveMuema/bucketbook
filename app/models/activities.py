@@ -1,5 +1,5 @@
 from app.models.store import Stores
-""" """
+""" Handles the activity class with its properties. Create, Update, Delete and Read"""
 class Activities(object):
     """contains blueprint and methods for accessing activities"""
     def __init__(self, activitytxt,bucket_id, activity_id=None):

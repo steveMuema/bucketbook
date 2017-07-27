@@ -8,6 +8,7 @@ from app.models.user import User
 from app.models.store import Stores
 from app.models.bucketlist import Bucketlist
 
+
 app.users= {}
 app.bucketlist={}
 app.activities={}
@@ -18,11 +19,11 @@ def index():
     return render_template("getting-started.html")
 
 # Check if user logged in
-def is_logged_in(f):
-    @wraps(f)
+def is_logged_in(param):
+    @wraps(param)
     def wrap(*args, **kwargs):
         if  'logged_in' in session:
-            return f(*args, **kwargs)
+            return param(*args, **kwargs)
         else:
             flash('Unauthorized, Please login', 'danger')
             return redirect(url_for('login'))
@@ -57,9 +58,9 @@ def login():
         
         print("You're successfully logged in.", user)
         return redirect(url_for('home'))
-        # else:
-        #     error = 'Username not found'
-        #     return render_template('login.html', error=error)
+    else:
+        error = 'Username not found'
+        return render_template('login.html', error=error)
 
     return render_template("login.html")
  
@@ -69,19 +70,19 @@ def login():
 def logout():
     session.clear()
     flash('You are now logged out', 'success')
-    return redirect(url_for('home'))
+    return redirect(url_for('login'))
 
 
-@app.route('/bucketlists', methods=['GET', 'POST'])
-@is_logged_in
-def bucketlists():
-    """ opens the bucketlists page. Home page of application """
-    if request.method == 'POST':
-        bucketname= request.form["bucketname"]
-        bucket=Bucketlist(bucketname)
-        app.bucketlist[bucket.bucket_id] = bucket
-        return render_template("bucketlists.html", bucketlist=app.bucketlist)
-    return render_template("bucketlists.html", bucketlist=app.bucketlist)
+# @app.route('/bucketlists', methods=['GET', 'POST'])
+# @is_logged_in
+# def bucketlists():
+#     """ opens the bucketlists page. Home page of application """
+#     if request.method == 'POST':
+#         bucketname= request.form["bucketname"]
+#         bucket=Bucketlist(bucketname)
+#         app.bucketlist[bucket.bucket_id] = bucket
+#         return render_template("bucketlists.html", bucketlist=app.bucketlist)
+#     return render_template("bucketlists.html", bucketlist=app.bucketlist)
 
 @app.route('/editbucket/<bucket_id>', methods=['GET', 'POST'])
 @is_logged_in
@@ -101,31 +102,15 @@ def delete_bucket(bucket_id):
     del app.bucketlist[bucket_id]
     return redirect(url_for('bucketlists'))
 
-@app.route('/addactivity/<bucket_id>', methods=['GET'])
-@is_logged_in
-def add_activity(bucket_id):
-    return redirect(url_for('activities'))
-
 @app.route('/activities', methods=['GET'])
 @is_logged_in
-def activities():
-    """ opens the activities page"""
-    return render_template("old-activities.html")
-@app.route('/about')
-def about():
-    """ opens the about page"""
-    return render_template("about.html")
-
-
-
-
-
+def add_activity():
+    return render_template('old-activities.html')
 
 @app.route('/home', methods=['GET', 'POST'])
 @is_logged_in
 def home():
     """ opens the bucketlists page. Home page of application """
-    #require db to store and pass information to the database. front end fulfilled with javascript
     if request.method == 'POST':
         bucketname= request.form["bucketname"]
         bucket=Bucketlist(bucketname)
@@ -133,8 +118,8 @@ def home():
         return render_template("home.html", bucketlist=app.bucketlist)
     return render_template("home.html", bucketlist=app.bucketlist)
 
-@app.route('/bucket_activities', methods=['GET','POST'])
-@is_logged_in
-def bucket_activities():
-    #require db to store and manipulate backend tasks of the page. front end fulfilled with javascript
-    return render_template("old-activities.html")
+
+@app.route('/about')
+def about():
+    """ opens the about page"""
+    return render_template("about.html")

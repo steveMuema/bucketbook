@@ -12,12 +12,10 @@
           <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper">
-                <a href="#!" class="brand-logo center">BucketlistApp</a>
+                <a href="#!" class="brand-logo center">BucketBook</a>
                 <a href="/logout">Log Out</a>
-                    <!--<ul class="right hide-on-med-and-down">
-                        <li><a href="about.html"><i class="material-icons">info</i></a></li>
-                        <li><a href="badges.html"><i class="material-icons">code</i></a></li>
-                    </ul>-->
+                   
+            
             </div>
             </nav>
         </div>
@@ -48,41 +46,16 @@
              </div> 
                 <ul id="myUL" class="collection">
                 <li class="checked">What are your heart's desires...</li>
-                    {%for bucket in bucketlist%}
-                
+                    {%for bucket in bucketlist%}  
                 <li> {{bucketlist[bucket_id].bucketname}}
-                   
+                   <!-- <a href="/activities/{{buckets}}" class="btn btn-primary"> Add</a>  -->
                 </li>
                   
                     {%endfor%}
                 </ul>
          
           </div>
-          <!-- The Modal -->
-          <div class="rowModal">
-        <div id="myModal" class="modal">
 
-             <!-- Modal content -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <span class="close1">&times;</span>
-                    <h4>View Activities</h4>
-                </div>
-                <div class="modal-body">
-                    <div id="myDIV" class="header">
-                        <input type="text" id="myInput" placeholder="Create new Activity...">
-                        <span onclick="newActivity()" class="addActivity">Add</span>
-                        </div>
-                        
-                        <ul id="myUL1" class="collection">
-                           
-                            <li> Handle stuff</li>
-                            
-                        </ul> 
-                </div>
-            </div>
-        </div>
-       
           <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
            <script type="text/javascript" src="../static/js/materialize.min.js"></script>
            <script type="text/javascript" src="../static/homelists.js"></script>

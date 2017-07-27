@@ -1,4 +1,4 @@
-// Create a "close" button and append it to each list item
+         // Create a "close" button and append it to each list item
 var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
@@ -10,21 +10,7 @@ for (i = 0; i < myNodelist.length; i++) {
                   }
 
                 
-    //create "edit" button and append on each list item
-    var myNodelist1= document.getElementsByTagName("LI");
-    var i;
-    for (i =0; i<myNodelist1.length; i++) {
-    
-    // var span1 = document.createElement("A");
-    var edittxt= document.createTextNode("edit");
-    
-    span1.className = "edit";
-    span1.id="editlink";
-    span1.appendChild(edittxt);
-    // span1.appendChild(link);
-    $('A').append(link);
-        myNodelist1[i].appendChild(span1);
-        }
+  
 
 
 //     //click "edit" button to open activities modal
@@ -32,8 +18,10 @@ for (i = 0; i < myNodelist.length; i++) {
     var i;
     for(i=0; i<edit.length; i++){
         edit[i].onclick = function (){
+     
+    //do href to my controller function edit bucketlist 
         
-          };
+};
     }
  
     
@@ -70,27 +58,23 @@ for (i = 0; i < myNodelist.length; i++) {
     }
     document.getElementById("addlist").value = "";
 
-    //create close element when user adds a new list
     var spanclose = document.createElement("SPAN");
     var txtclose = document.createTextNode("\u00D7");
+    
     spanclose.className = "close";
     spanclose.appendChild(txtclose);
     list.appendChild(spanclose);
 
-    //create edit element when user adds a new list
+  
+
     var spanEdit = document.createElement("SPAN");
     var createEdit= document.createTextNode("edit");
+    var editlink = document.createElement("a");
+    editlink.setAttribute('href', '/editbucket/<bucket_id>' );
     spanEdit.className = "edit";
+    apanEdit.appendChild(editlink);
     spanEdit.appendChild(createEdit);
         list.appendChild(spanEdit);
-
-    //create add activity element when user adds a new list
-    var spanAdd = document.createElement("A");
-    var createAdd= document.createTextNode("add");
-    spanEdit.className = "addActivity";
-    spanEdit.appendChild(createAdd);
-    list.appendChild(spanAdd);
-    
 
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function() {
@@ -100,33 +84,10 @@ for (i = 0; i < myNodelist.length; i++) {
     }
     for(i=0; i<edit.length; i++){
         edit[i].onclick = function(){
-        // Get the modal
-        var modal = document.getElementById('myModal');
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
+            //add function to open edit bucketlist page
         }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-                }
     }         
 } 
-    }
+    
 
     
