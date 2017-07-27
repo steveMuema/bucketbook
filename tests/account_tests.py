@@ -5,7 +5,6 @@ from app.models.store import Stores
 from app.models.bucketlist import Bucketlist
 from app.models.activities import Activities
 
-
 class TestAccount(unittest.TestCase):
     """ sets up TestAccount for testing methods"""
     def setUp(self):
@@ -13,8 +12,8 @@ class TestAccount(unittest.TestCase):
         self.store = Stores()
         self.dummy_user = {'username': 'hitchs3x',
                            'email': 'hitch@gmail.com',
-                           'password': 'say123#', }
-                        #    'user_id': 'vbhvghv',}
+                           'password': 'say123#', 
+                           'user_id': 'vbhvghv',}
         self.dummy_bucketlist = {'bucketname': 'Before 2017 ends?',
                                  'bucket_id': '0'}
         self.dummy_activity = {'activitytxt': 'Buy early bird FIFA World Cup 2017 tickets'}
