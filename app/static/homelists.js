@@ -8,11 +8,6 @@ for (i = 0; i < myNodelist.length; i++) {
     span.appendChild(txt);
     myNodelist[i].appendChild(span);
                   }
-
-                
-  
-
-
 //     //click "edit" button to open activities modal
     var edit=document.getElementsByClassName("edit");
     var i;
@@ -60,21 +55,13 @@ for (i = 0; i < myNodelist.length; i++) {
 
     var spanclose = document.createElement("SPAN");
     var txtclose = document.createTextNode("\u00D7");
-    
     spanclose.className = "close";
     spanclose.appendChild(txtclose);
     list.appendChild(spanclose);
 
   
 
-    var spanEdit = document.createElement("SPAN");
-    var createEdit= document.createTextNode("edit");
-    var editlink = document.createElement("a");
-    editlink.setAttribute('href', '/editbucket/<bucket_id>' );
-    spanEdit.className = "edit";
-    apanEdit.appendChild(editlink);
-    spanEdit.appendChild(createEdit);
-        list.appendChild(spanEdit);
+  
 
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function() {
