@@ -4,7 +4,7 @@ from app.models.store import Stores
 class User(object):
     """ class that handles registration of accounts on bucketbook."""
     def __init__(self,username, email, password, user_id=None):
-        self.user_id = uuid4().hex if user_id is None: user_id
+        self.user_id = str(uuid4().hex) if user_id is None else user_id
         self.username = username
         self.email = email
         self.password = password
@@ -40,5 +40,5 @@ class User(object):
     def save_credentials(self):
         """ sends account to main store of accounts[account_store] """
         Stores.account_store.append(self.register_stores())
-    # def login_user(cls, username, email, password):
+    
             

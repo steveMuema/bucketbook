@@ -2,9 +2,11 @@ from app.models.store import Stores
 """ """
 class Activities(object):
     """contains blueprint and methods for accessing activities"""
-    def __init__(self, activitytxt, activity_id):
+    def __init__(self, activitytxt,bucket_id, activity_id=None):
         self.activitytxt = activitytxt
-        self.activity_id = activity_id
+        self.bucket_id = bucket_id
+        from uuid import uuid4
+        self.activity_id = str(uuid4().hex) if activity_id is None else activity_id
     def activity_store(self):
         """return information to be called  when appending to the store """
         return{'activitytxt': self.activitytxt,
@@ -15,7 +17,7 @@ class Activities(object):
         new_activity = cls(activitytxt, activity_id)
         new_activity.save_activity()
     def save_activity(self):
-        """ """
+        """ Appends the activity to the store"""
         Stores.activities_store.append(self.activity_store())
     def update_activities(self, activitytxt, activity_id):
         """ method for updating the activity """
@@ -28,9 +30,9 @@ class Activities(object):
         return view_activities
     def remove_activity(self, activity_id):
         """method used to remove a activity """
-        selected_activity = [x for x in Stores.activities_store if
-                             activity_id == x['activity_id']]
-        selected_activity.remove()
-        return Stores.activities_store
+        selected_activity = [activity for activity in Stores.activities_store if
+                             activity_id == activity['activity_id']]
+        selected_activity.remove(selected_activity[0])
+        return True
     
     

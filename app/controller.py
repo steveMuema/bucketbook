@@ -25,8 +25,7 @@ class CreateBucket(Form):
 class CreateActivity(Form):
     """ used to create new activity"""
     activitytxt = StringField('activitytxt', validators=[InputRequired(), Length(min=4, max=140)])
-    # buckets_name = StringField('Buckets_name', validators=[InputRequired(), Length(min=4, max=140)])
-
+   
 class EditBucket(Form):
     """  edits available buckets """
     buckets_name = StringField('buckets_name')
