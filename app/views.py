@@ -106,11 +106,11 @@ def delete_bucket(bucket_id):
 def add_activity(bucket_id):
     return redirect(url_for('activities'))
 
-@app.route('/activities')
+@app.route('/activities', methods=['GET'])
 @is_logged_in
 def activities():
     """ opens the activities page"""
-    return render_template("activities.html")
+    return render_template("old-activities.html")
 @app.route('/about')
 def about():
     """ opens the about page"""
@@ -126,7 +126,12 @@ def about():
 def home():
     """ opens the bucketlists page. Home page of application """
     #require db to store and pass information to the database. front end fulfilled with javascript
-    return render_template("home.html")
+    if request.method == 'POST':
+        bucketname= request.form["bucketname"]
+        bucket=Bucketlist(bucketname)
+        app.bucketlist[bucket.bucket_id] = bucket
+        return render_template("home.html", bucketlist=app.bucketlist)
+    return render_template("home.html", bucketlist=app.bucketlist)
 
 @app.route('/bucket_activities', methods=['GET','POST'])
 @is_logged_in

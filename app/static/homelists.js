@@ -51,7 +51,7 @@ for (i = 0; i < myNodelist.length; i++) {
     }
     
 //     //click "edit" button to open activities modal
-    var edit=document.getElementsByClassName("edit");
+    var edit=document.getElementsByClassName("add");
     var i;
     for(i=0; i<edit.length; i++){
         edit[i].onclick = function (){
@@ -84,7 +84,7 @@ for (i = 0; i < myNodelist.length; i++) {
     var counter=1;
     function newElement() {
         var text = $('#addlist').val();
-        $('#myUL').append('<li>'+text+ '<a href="/activities/<bucket_id>" class="btn btn-default"></a>'  +'</li>');
+        $('#myUL').append('<li>'+text + '<a href="/activities" class="btn btn-default">add</a>'+ '</li>');
         };
 
         $('#edit').click(function(){
