@@ -1,4 +1,4 @@
-         // Create a "close" button and append it to each list item
+// Create a "close" button and append it to each list item
 var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
@@ -15,47 +15,24 @@ for (i = 0; i < myNodelist.length; i++) {
     var i;
     for (i =0; i<myNodelist1.length; i++) {
     
-    var span1 = document.createElement("A");
+    // var span1 = document.createElement("A");
     var edittxt= document.createTextNode("edit");
     
     span1.className = "edit";
     span1.id="editlink";
     span1.appendChild(edittxt);
     // span1.appendChild(link);
-    // $('A').append(link);
+    $('A').append(link);
         myNodelist1[i].appendChild(span1);
         }
 
-    //create add activity  link
-    var myNodelist2= document.getElementsByTagName("LI");
-    var i;
-    for (i =0; i<myNodelist1.length; i++) {
-    
-    var span3 = document.createElement("A");
-    var addtxt= document.createTextNode("add");
-    
-    span3.className = "add";
-    span3.id="addlink";
-    span3.appendChild(addtxt);
-    // span1.appendChild(link);
-    // $('A').append(link);
-    myNodelist1[i].appendChild(span3);
 
-    //click "add " button to open link to activities 
-     var edit=document.getElementsByClassName("add");
+//     //click "edit" button to open activities modal
+    var edit=document.getElementsByClassName("edit");
     var i;
     for(i=0; i<edit.length; i++){
         edit[i].onclick = function (){
         
-          };
-    }
-    
-//     //click "edit" button to open activities modal
-    var edit=document.getElementsByClassName("add");
-    var i;
-    for(i=0; i<edit.length; i++){
-        edit[i].onclick = function (){
-        // open href link
           };
     }
  
@@ -81,64 +58,75 @@ for (i = 0; i < myNodelist.length; i++) {
     }, false);
 
     // Create a new list item when clicking on the "Add" button
-    var counter=1;
     function newElement() {
-        var text = $('#addlist').val();
-        $('#myUL').append('<li>'+text + '<a href="/activities" class="btn btn-default">add</a>'+ '</li>');
-        };
+    var list = document.createElement("li");
+    var inputList = document.getElementById("addlist").value;
+    var txtnode = document.createTextNode(inputList);
+    list.appendChild(txtnode);
+    if (inputList === '') {
+        alert("You must write something!");
+    } else {
+        document.getElementById("myUL").appendChild(list);
+    }
+    document.getElementById("addlist").value = "";
 
-        $('#edit').click(function(){
-            $('li').attr('contenteditable','true');
-        });
-        $('#delete').click(function(){
-            $('li').remove()
-        });
-        $('#add').click(function(){
-            $('li').on('click', addlist);
-        });
+    //create close element when user adds a new list
+    var spanclose = document.createElement("SPAN");
+    var txtclose = document.createTextNode("\u00D7");
+    spanclose.className = "close";
+    spanclose.appendChild(txtclose);
+    list.appendChild(spanclose);
 
-    // var list = document.createElement("li");
-    // var inputList = document.getElementById("addlist").value;
-    // var txtnode = document.createTextNode(inputList);
-    // list.appendChild(txtnode);
-    // if (inputList === '') {
-    //     alert("You must write something!");
-    // } else {
-    //     document.getElementById("myUL").appendChild(list);
-    // }
-    // document.getElementById("addlist").value = "";
+    //create edit element when user adds a new list
+    var spanEdit = document.createElement("SPAN");
+    var createEdit= document.createTextNode("edit");
+    spanEdit.className = "edit";
+    spanEdit.appendChild(createEdit);
+        list.appendChild(spanEdit);
 
-    // var spanclose = document.createElement("SPAN");
-    // var txtclose = document.createTextNode("\u00D7");
-    // spanclose.className = "close";
-    // spanclose.appendChild(txtclose);
-    // list.appendChild(spanclose);
-
-    // var spanEdit = document.createElement("SPAN");
-    // var createEdit= document.createTextNode("edit");
-    // spanEdit.className = "edit";
-    // spanEdit.appendChild(createEdit);
-    //     list.appendChild(spanEdit);
-
-    // var spanAdd = document.createElement("A");
-    // var createAdd= document.createTextNode("add");
-    // spanEdit.className = "add";
-    // spanEdit.appendChild(createAdd);
-    // list.appendChild(spanAdd);
+    //create add activity element when user adds a new list
+    var spanAdd = document.createElement("A");
+    var createAdd= document.createTextNode("add");
+    spanEdit.className = "addActivity";
+    spanEdit.appendChild(createAdd);
+    list.appendChild(spanAdd);
     
 
-    // for (i = 0; i < close.length; i++) {
-    //     close[i].onclick = function() {
-    //     var div1 = this.parentElement;
-    //     div1.style.display = "none";
-    //     }
-    //}
-    // for(i=0; i<edit.length; i++){
-    //     edit[i].onclick = function(){
-        
-    //     }
-    // }         
-} 
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+        var div1 = this.parentElement;
+        div1.style.display = "none";
+        }
+    }
+    for(i=0; i<edit.length; i++){
+        edit[i].onclick = function(){
+        // Get the modal
+        var modal = document.getElementById('myModal');
 
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+                }
+    }         
+} 
+    }
 
     
