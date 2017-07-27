@@ -1,7 +1,7 @@
 .add-card{
     border-radius: 30px;
     padding-left: 350px;
-    padding-right: 270px;
+    padding-right: 200px;
     padding-top:60px;
   
 }
@@ -114,6 +114,19 @@ ul li.checked::before {
     background-color: #f44336;
     color: white;
 }
+.closelist {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.closelist:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+
 .closeActivity {
     position: absolute;
     right: 0;
