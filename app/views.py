@@ -2,7 +2,7 @@
 from functools import wraps
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from app import app
-from controller import RegisterForm, CreateBucket, LoginForm
+from app.controller import RegisterForm, CreateBucket, LoginForm
 from passlib.hash import sha256_crypt
 from app.models.user import User
 from app.models.store import Stores
@@ -81,7 +81,7 @@ def logout():
 
 @app.route('/editbucket/<bucket_id>', methods=['GET', 'POST'])
 @is_logged_in
-def edit_buckets(bucket_id):
+def edit_buckets():
     if request.method=='POST':
         bucketname= request.form["bucketname"]
         bucket=Bucketlist(bucketname)
@@ -92,7 +92,7 @@ def edit_buckets(bucket_id):
     
 @app.route('/deletebucket/<bucket_id>')
 @is_logged_in
-def delete_bucket(bucket_id):
+def delete_bucket():
     del app.bucketlist[bucket_id]
     return redirect(url_for('bucketlists'))
 
