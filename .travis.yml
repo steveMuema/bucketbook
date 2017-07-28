@@ -7,7 +7,7 @@ install:
   - pip install coveralls
 
 script:
-- pytest
+- nosetests
 - coverage run --source=. -m py.test && coverage report
 - coveralls
 
