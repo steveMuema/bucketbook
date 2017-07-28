@@ -1,4 +1,5 @@
 [![Coverage Status](https://coveralls.io/repos/github/steveMuema/bucketbook/badge.svg?branch=master)](https://coveralls.io/github/steveMuema/bucketbook?branch=master)
+[![Build Status](https://travis-ci.org/steveMuema/bucketbook.svg?branch=master)](https://travis-ci.org/steveMuema/bucketbook)
 
 # bucketbook
 Store and view bucketlists 
@@ -21,7 +22,4 @@ Setup Flask environment and python 2.7 on your workstation first
 5. Run the exported file using; flask run.py command.
 6. On your browser, navigate to http:127.0.0.1:5000, to register and login to your bucketlists.
 
-
-
-Tests coverage done with coveralls at https://coveralls.io/repos/github/steveMuema/bucketbook/badge.svg?branch=home-edits(Coverage Status)!:https://coveralls.io/github/steveMuema/bucketbook?branch=home-edits
 

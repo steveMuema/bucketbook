@@ -10,7 +10,7 @@ class TestAccount(unittest.TestCase):
     def setUp(self):
         """ sets defaults to the test account"""
         self.store = Stores()
-        self.dummy_user = {'username': 'hitchs3x',
+        self.dummy_user = {'username': 'hitch',
                            'email': 'hitch@gmail.com',
                            'password': 'say123#', 
                            'user_id': 'vbhvghv',}
@@ -22,7 +22,7 @@ class TestAccount(unittest.TestCase):
         del self.store.activities_store[:]
     def test_user_registration(self):
         """ checks if test can append to the register central store [account_store] """
-        new_user = User.register_user('hitchs3x', 'hitch@gmail.com', 'say123#', 'vbhvghv')
+        new_user = User.register_user('hitch', 'hitch@gmail.com', 'say123#', 'vbhvghv')
         self.assertEqual(new_user.email, 'hitch@gmail.com')    
     def test_create_bucketlist(self):
         """" check if dummy_bucket can append to the central store [bucketlist_store]"""
@@ -36,18 +36,23 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(dummy_activity, new_activity)
     def test_account_exists(self):
         """ tests if user exists and passes tesst if true"""
-        new_user = User.account_exists('hitchs3x')
-        new_user1 = User.account_exists('hitchs3x')  
+        new_user = User.account_exists('hitch')
+        new_user1 = User.account_exists('hitch')  
         self.assertEqual(new_user, new_user1)     
 
     def test_bucketlist_filled(self):
-
+        """ test if bucketlist is empty"""
         newbucketlist=Bucketlist.create_bucketlist('', '')
         print(newbucketlist)
         self.assertEqual(newbucketlist, None, msg="You must write something")
 
     def test_activity_filled(self):
-
+        """ test if activity is empty """
         newActivity=Activities.create_activity('', '')
         print(newActivity)
         self.assertEqual(newActivity, None, msg="You must write something")
+    
+    def test_username_exists(self):
+        new_user=User.username_exists('hitch')
+        new_user1=User.username_exists('hitch')
+        self.assertEqual(new_user, new_user1)
