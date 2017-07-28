@@ -47,8 +47,9 @@
                 <ul id="myUL" class="collection">
                 <li class="checked">What are your heart's desires...</li>
                     {%for bucket in bucketlist%}  
-                <li> {{bucketlist[bucket_id].bucketname}}           </li>
-                  
+                <li> {{bucketlist[bucket_id].bucketname}}  
+                     <a href="/activities" class="btn btn-primary">Activities</a>         </li>
+                 
                     {%endfor%}
                 </ul>
          

@@ -36,10 +36,16 @@ def register():
     if request.method == 'POST' and form.validate():
         email = form.email.data
         username = form.username.data
+        if User.username_exists(username):
+            error="name is unavailable use another username"
+            return render_template("register.html", error=error)
+        elif User.account_exists(username) is True:
+            print("account exists, try logging in")
+            return render_template("register.html")
         password = sha256_crypt.encrypt(str(form.password.data))
         new_user = [email, username, password]
-        new_user=User(email, username, password).save_credentials
-        app.users[username]= new_user
+        new_user=User(email, username, password).save_credentials 
+        app.users[username]=new_user
         print("You're now registered please login", 'success', app.users)
         return redirect(url_for('login'))
     return render_template("register.html", form=form)
@@ -73,17 +79,6 @@ def logout():
     return redirect(url_for('login'))
 
 
-# @app.route('/bucketlists', methods=['GET', 'POST'])
-# @is_logged_in
-# def bucketlists():
-#     """ opens the bucketlists page. Home page of application """
-#     if request.method == 'POST':
-#         bucketname= request.form["bucketname"]
-#         bucket=Bucketlist(bucketname)
-#         app.bucketlist[bucket.bucket_id] = bucket
-#         return render_template("bucketlists.html", bucketlist=app.bucketlist)
-#     return render_template("bucketlists.html", bucketlist=app.bucketlist)
-
 @app.route('/editbucket/<bucket_id>', methods=['GET', 'POST'])
 @is_logged_in
 def edit_buckets(bucket_id):
@@ -98,13 +93,12 @@ def edit_buckets(bucket_id):
 @app.route('/deletebucket/<bucket_id>')
 @is_logged_in
 def delete_bucket(bucket_id):
-    print(app.bucketlist)
     del app.bucketlist[bucket_id]
     return redirect(url_for('bucketlists'))
 
 @app.route('/activities', methods=['GET'])
 @is_logged_in
-def add_activity():
+def activity():
     return render_template('old-activities.html')
 
 @app.route('/home', methods=['GET', 'POST'])

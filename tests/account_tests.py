@@ -36,7 +36,18 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(dummy_activity, new_activity)
     def test_account_exists(self):
         """ tests if user exists and passes tesst if true"""
-        new_user = User.register_user('hitchs3x', 'hitch@gmail.com', 'say123#', 'vbhvghv')
-        new_user = User.register_user('hitchs3x', 'hitch@gmail.com', 'say123#', 'vbhvghv')  
-        self.assertEqual(new_user, new_user)     
+        new_user = User.account_exists('hitchs3x')
+        new_user1 = User.account_exists('hitchs3x')  
+        self.assertEqual(new_user, new_user1)     
 
+    def test_bucketlist_filled(self):
+
+        newbucketlist=Bucketlist.create_bucketlist('', '')
+        print(newbucketlist)
+        self.assertEqual(newbucketlist, None, msg="You must write something")
+
+    def test_activity_filled(self):
+
+        newActivity=Activities.create_activity('', '')
+        print(newActivity)
+        self.assertEqual(newActivity, None, msg="You must write something")

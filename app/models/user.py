@@ -22,16 +22,16 @@ class User(object):
         exist = [e['username'] for e in Stores.account_store if username == e['username']] 
         return "Username not available".join(exist)
     @staticmethod   
-    def account_exists(email):
+    def account_exists(username):
         """ method to check if account exists then allow registration if false"""
-        if email in Stores.account_store:
-            return "Account exist, Sign in to account", email 
+        if username in Stores.account_store:
+            return "Account exist, Sign in to account", username
         else:
             return False
     @classmethod
     def register_user(cls,user_id, username, email, password):
         """ method for creating a new user"""
-        auth_user = User.account_exists(email)
+        auth_user = User.account_exists(username)
         if auth_user is False:
             new_user = cls(user_id,username, email, password)
             new_user.save_credentials()
