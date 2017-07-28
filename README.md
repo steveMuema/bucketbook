@@ -1,6 +1,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/steveMuema/bucketbook/badge.svg?branch=master)](https://coveralls.io/github/steveMuema/bucketbook?branch=master)
 [![Build Status](https://travis-ci.org/steveMuema/bucketbook.svg?branch=master)](https://travis-ci.org/steveMuema/bucketbook)
 
+
 # bucketbook
 Store and view bucketlists 
 
@@ -13,7 +14,8 @@ Create, view, update and delete bucket lists.
 Add, update, view or delete activities in a bucket list.
 
 
-#How to setup
+# How to setup
+
 Setup Flask environment and python 2.7 on your workstation first
 1. Download Flask and virtualenv on your desktop.
 2. Activate your flask environment by using source/path/to/virtualenvwrapper.sh
