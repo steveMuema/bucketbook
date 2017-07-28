@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/steveMuema/bucketbook/badge.svg?branch=master)](https://coveralls.io/github/steveMuema/bucketbook?branch=master)
 # bucketbook
 Store and view bucketlists 
 
