@@ -1,0 +1,6 @@
+bucket-env/
+__pycache__/
+*.coverage
+*.pyc
+.vscode
+.cache

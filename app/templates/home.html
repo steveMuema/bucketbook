@@ -1,6 +1,25 @@
-{% extends "base.html" %}
-{% block content %}
-  <div class="add-card">
+<html>
+    <head>
+        <meta charset="utf-8";>
+        <title> BucketlistApp </title>
+        <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"  media="screen,projection"/>
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <link rel="stylesheet" href="../static/style.css">
+          <link rel="stylesheet" href="../static/list.css">
+         
+    </head>
+    <body>
+          <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper">
+                <a href="/" class="brand-logo center">BucketBook</a>
+                <a href="/logout">Log Out</a>
+                   
+            
+            </div>
+            </nav>
+        </div>
+        <div class="add-card">
           <div class="row">
             <div class="col s12 m6">
                 <div class="card #263238 blue-grey darken-4">
@@ -10,9 +29,9 @@
                              <input  id = "addlist" type="text" class ="validate">
                              <label for = "addlist">Add a new Bucketlist...</label>
                         
-                        </div>
                          <span onclick="newElement()" class="addBtn">Add</span>
-                         
+                        </div>
+                         <!--<span onclick="activitiesModal()" class="">Edit</span> -->
                             
                         </div>
                     </div>
@@ -21,13 +40,26 @@
             
           </div>
           </div>
-        <div class="row">
-            <div class="headerlist">
-                <h4>Your Lists</h4>
-            </div>
-        </div> 
-        <!--<div class="rowlist">-->
-                <ul id="myUL" >
+          <div class="rowlist">
+         <div id="myDIV" class="header">
+            <h4>Your Lists</h4>
+             </div> 
+                <ul id="myUL" class="collection">
                 <li class="checked">What are your heart's desires...</li>
+                    {%for bucket in bucketlist%}  
+                <li> {{bucketlist[bucket_id].bucketname}}  
+                     <a href="/activities" class="btn btn-primary">Activities</a>         </li>
+                 
+                    {%endfor%}
                 </ul>
-{% endblock content %}
+         
+          </div>
+
+          <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+           <script type="text/javascript" src="../static/js/materialize.min.js"></script>
+           <script type="text/javascript" src="../static/homelists.js"></script>
+            <script type="text/javascript" >
+                    </script>
+    </body>
+     
+</html>

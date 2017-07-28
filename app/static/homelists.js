@@ -8,39 +8,17 @@ for (i = 0; i < myNodelist.length; i++) {
     span.appendChild(txt);
     myNodelist[i].appendChild(span);
                   }
-
-                
-    //create "edit" button and append on each list item
-    var myNodelist1= document.getElementsByTagName("LI");
-    var i;
-    for (i =0; i<myNodelist1.length; i++) {
-    
-    var span1 = document.createElement("A");
-    var edittxt= document.createTextNode("edit");
-    
-    span1.className = "edit";
-    span1.id="editlink";
-    span1.appendChild(edittxt);
-    // span1.appendChild(link);
-    // $('A').append(link);
-        myNodelist1[i].appendChild(span1);
-        }
-
-
 //     //click "edit" button to open activities modal
     var edit=document.getElementsByClassName("edit");
     var i;
     for(i=0; i<edit.length; i++){
         edit[i].onclick = function (){
      
-          
+    //do href to my controller function edit bucketlist 
         
 };
     }
- 
-    
-
-    // Click on a close button to hide the current list item
+   // Click on a close button to hide the current list item
     var close = document.getElementsByClassName("close");
     var i;
     for (i = 0; i < close.length; i++) {
@@ -78,11 +56,9 @@ for (i = 0; i < myNodelist.length; i++) {
     spanclose.appendChild(txtclose);
     list.appendChild(spanclose);
 
-    var spanEdit = document.createElement("SPAN");
-    var createEdit= document.createTextNode("edit");
-    spanEdit.className = "edit";
-    spanEdit.appendChild(createEdit);
-        list.appendChild(spanEdit);
+  
+
+  
 
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function() {
@@ -90,12 +66,12 @@ for (i = 0; i < myNodelist.length; i++) {
         div1.style.display = "none";
         }
     }
-    // for(i=0; i<edit.length; i++){
-    //     edit[i].onclick = function(){
-        
-    //     }
-    // }         
+    for(i=0; i<edit.length; i++){
+        edit[i].onclick = function(){
+            //add function to open edit bucketlist page
+        }
+    }         
 } 
-
+    
 
     
