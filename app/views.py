@@ -92,8 +92,8 @@ def edit_buckets():
     
 @app.route('/deletebucket/<bucket_id>')
 @is_logged_in
-def delete_bucket():
-    del app.bucketlist[bucket_id]
+def delete_bucket(bucket):
+    del app.bucketlist[bucket.bucket_id]
     return redirect(url_for('bucketlists'))
 
 @app.route('/activities', methods=['GET'])
